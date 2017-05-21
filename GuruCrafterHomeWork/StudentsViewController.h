@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  StudentsViewController.h
 //  GuruCrafterHomeWork
 //
 //  Created by Syngmaster on 19/05/2017.
@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainTableViewController.h"
 
-@interface ViewController : UIViewController
+
+@interface StudentsViewController : MainTableViewController
 
 
 @end
-

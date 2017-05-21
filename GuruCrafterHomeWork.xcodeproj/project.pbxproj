@@ -9,11 +9,19 @@
 /* Begin PBXBuildFile section */
 		DC4AD11B1ECEF4E700A722EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD11A1ECEF4E700A722EE /* main.m */; };
 		DC4AD11E1ECEF4E700A722EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD11D1ECEF4E700A722EE /* AppDelegate.m */; };
-		DC4AD1211ECEF4E700A722EE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD1201ECEF4E700A722EE /* ViewController.m */; };
-		DC4AD1241ECEF4E700A722EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AD1221ECEF4E700A722EE /* Main.storyboard */; };
 		DC4AD1271ECEF4E700A722EE /* GuruCrafterHomeWork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD1251ECEF4E700A722EE /* GuruCrafterHomeWork.xcdatamodeld */; };
 		DC4AD1291ECEF4E700A722EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC4AD1281ECEF4E700A722EE /* Assets.xcassets */; };
 		DC4AD12C1ECEF4E700A722EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AD12A1ECEF4E700A722EE /* LaunchScreen.storyboard */; };
+		DC4AD1351ECEF60500A722EE /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD1341ECEF60500A722EE /* DataManager.m */; };
+		DC4AD1381ECF05D800A722EE /* StudentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD1371ECF05D800A722EE /* StudentsViewController.m */; };
+		DC4AD13A1ECF1AD600A722EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AD1391ECF1AD600A722EE /* Main.storyboard */; };
+		DC4AD13D1ECF1C7F00A722EE /* AddStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD13C1ECF1C7F00A722EE /* AddStudentViewController.m */; };
+		DC4AD1401ECF330600A722EE /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD13F1ECF330600A722EE /* CoursesViewController.m */; };
+		DC4AD1431ECF331800A722EE /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD1421ECF331800A722EE /* AddCourseViewController.m */; };
+		DC4AD1461ECF35A700A722EE /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD1451ECF35A700A722EE /* MainTableViewController.m */; };
+		DC4AD1491ECF3B7300A722EE /* AddCourseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD1481ECF3B7300A722EE /* AddCourseViewCell.m */; };
+		DC4AD14C1ED03F8600A722EE /* PickCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD14B1ED03F8600A722EE /* PickCourseViewController.m */; };
+		DC4AD1521ED1F0D200A722EE /* PickStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD1511ED1F0D200A722EE /* PickStudentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +29,29 @@
 		DC4AD11A1ECEF4E700A722EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DC4AD11C1ECEF4E700A722EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DC4AD11D1ECEF4E700A722EE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DC4AD11F1ECEF4E700A722EE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DC4AD1201ECEF4E700A722EE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DC4AD1231ECEF4E700A722EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC4AD1261ECEF4E700A722EE /* GuruCrafterHomeWork.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuruCrafterHomeWork.xcdatamodel; sourceTree = "<group>"; };
 		DC4AD1281ECEF4E700A722EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC4AD12B1ECEF4E700A722EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC4AD12D1ECEF4E700A722EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC4AD1331ECEF60500A722EE /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		DC4AD1341ECEF60500A722EE /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		DC4AD1361ECF05D800A722EE /* StudentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentsViewController.h; sourceTree = "<group>"; };
+		DC4AD1371ECF05D800A722EE /* StudentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentsViewController.m; sourceTree = "<group>"; };
+		DC4AD1391ECF1AD600A722EE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DC4AD13B1ECF1C7F00A722EE /* AddStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddStudentViewController.h; sourceTree = "<group>"; };
+		DC4AD13C1ECF1C7F00A722EE /* AddStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddStudentViewController.m; sourceTree = "<group>"; };
+		DC4AD13E1ECF330600A722EE /* CoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesViewController.h; sourceTree = "<group>"; };
+		DC4AD13F1ECF330600A722EE /* CoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesViewController.m; sourceTree = "<group>"; };
+		DC4AD1411ECF331800A722EE /* AddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseViewController.h; sourceTree = "<group>"; };
+		DC4AD1421ECF331800A722EE /* AddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewController.m; sourceTree = "<group>"; };
+		DC4AD1441ECF35A700A722EE /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		DC4AD1451ECF35A700A722EE /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
+		DC4AD1471ECF3B7300A722EE /* AddCourseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseViewCell.h; sourceTree = "<group>"; };
+		DC4AD1481ECF3B7300A722EE /* AddCourseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewCell.m; sourceTree = "<group>"; };
+		DC4AD14A1ED03F8600A722EE /* PickCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickCourseViewController.h; sourceTree = "<group>"; };
+		DC4AD14B1ED03F8600A722EE /* PickCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickCourseViewController.m; sourceTree = "<group>"; };
+		DC4AD1501ED1F0D200A722EE /* PickStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickStudentViewController.h; sourceTree = "<group>"; };
+		DC4AD1511ED1F0D200A722EE /* PickStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickStudentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +84,15 @@
 		DC4AD1181ECEF4E700A722EE /* GuruCrafterHomeWork */ = {
 			isa = PBXGroup;
 			children = (
+				DC4AD14E1ED1DE9200A722EE /* Course */,
+				DC4AD14D1ED1DE8000A722EE /* Student */,
 				DC4AD11C1ECEF4E700A722EE /* AppDelegate.h */,
 				DC4AD11D1ECEF4E700A722EE /* AppDelegate.m */,
-				DC4AD11F1ECEF4E700A722EE /* ViewController.h */,
-				DC4AD1201ECEF4E700A722EE /* ViewController.m */,
-				DC4AD1221ECEF4E700A722EE /* Main.storyboard */,
+				DC4AD1331ECEF60500A722EE /* DataManager.h */,
+				DC4AD1341ECEF60500A722EE /* DataManager.m */,
+				DC4AD1441ECF35A700A722EE /* MainTableViewController.h */,
+				DC4AD1451ECF35A700A722EE /* MainTableViewController.m */,
+				DC4AD1391ECF1AD600A722EE /* Main.storyboard */,
 				DC4AD1281ECEF4E700A722EE /* Assets.xcassets */,
 				DC4AD12A1ECEF4E700A722EE /* LaunchScreen.storyboard */,
 				DC4AD12D1ECEF4E700A722EE /* Info.plist */,
@@ -80,6 +108,42 @@
 				DC4AD11A1ECEF4E700A722EE /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC4AD14D1ED1DE8000A722EE /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				DC4AD1361ECF05D800A722EE /* StudentsViewController.h */,
+				DC4AD1371ECF05D800A722EE /* StudentsViewController.m */,
+				DC4AD13B1ECF1C7F00A722EE /* AddStudentViewController.h */,
+				DC4AD13C1ECF1C7F00A722EE /* AddStudentViewController.m */,
+				DC4AD14A1ED03F8600A722EE /* PickCourseViewController.h */,
+				DC4AD14B1ED03F8600A722EE /* PickCourseViewController.m */,
+			);
+			name = Student;
+			sourceTree = "<group>";
+		};
+		DC4AD14E1ED1DE9200A722EE /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				DC4AD14F1ED1F07400A722EE /* Cell */,
+				DC4AD13E1ECF330600A722EE /* CoursesViewController.h */,
+				DC4AD13F1ECF330600A722EE /* CoursesViewController.m */,
+				DC4AD1411ECF331800A722EE /* AddCourseViewController.h */,
+				DC4AD1421ECF331800A722EE /* AddCourseViewController.m */,
+				DC4AD1501ED1F0D200A722EE /* PickStudentViewController.h */,
+				DC4AD1511ED1F0D200A722EE /* PickStudentViewController.m */,
+			);
+			name = Course;
+			sourceTree = "<group>";
+		};
+		DC4AD14F1ED1F07400A722EE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DC4AD1471ECF3B7300A722EE /* AddCourseViewCell.h */,
+				DC4AD1481ECF3B7300A722EE /* AddCourseViewCell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +207,7 @@
 			files = (
 				DC4AD12C1ECEF4E700A722EE /* LaunchScreen.storyboard in Resources */,
 				DC4AD1291ECEF4E700A722EE /* Assets.xcassets in Resources */,
-				DC4AD1241ECEF4E700A722EE /* Main.storyboard in Resources */,
+				DC4AD13A1ECF1AD600A722EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,24 +218,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4AD13D1ECF1C7F00A722EE /* AddStudentViewController.m in Sources */,
+				DC4AD1401ECF330600A722EE /* CoursesViewController.m in Sources */,
 				DC4AD1271ECEF4E700A722EE /* GuruCrafterHomeWork.xcdatamodeld in Sources */,
-				DC4AD1211ECEF4E700A722EE /* ViewController.m in Sources */,
+				DC4AD1491ECF3B7300A722EE /* AddCourseViewCell.m in Sources */,
+				DC4AD1351ECEF60500A722EE /* DataManager.m in Sources */,
 				DC4AD11E1ECEF4E700A722EE /* AppDelegate.m in Sources */,
+				DC4AD1431ECF331800A722EE /* AddCourseViewController.m in Sources */,
+				DC4AD1381ECF05D800A722EE /* StudentsViewController.m in Sources */,
 				DC4AD11B1ECEF4E700A722EE /* main.m in Sources */,
+				DC4AD14C1ED03F8600A722EE /* PickCourseViewController.m in Sources */,
+				DC4AD1461ECF35A700A722EE /* MainTableViewController.m in Sources */,
+				DC4AD1521ED1F0D200A722EE /* PickStudentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DC4AD1221ECEF4E700A722EE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC4AD1231ECEF4E700A722EE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DC4AD12A1ECEF4E700A722EE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -316,6 +380,7 @@
 				DC4AD1321ECEF4E700A722EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

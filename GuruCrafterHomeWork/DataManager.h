@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @class CourseMO;
+@class StudentMO;
 
 @interface DataManager : NSObject
 
@@ -19,7 +20,8 @@
 
 + (DataManager *)sharedManager;
 - (void) addRandomStudent;
-- (NSArray *)getAllStudents;
+
 - (NSArray *)getAllStudentsInCourse:(CourseMO *) course;
+- (NSArray *)getAllCoursesOfStudent:(StudentMO *) student;
 
 @end

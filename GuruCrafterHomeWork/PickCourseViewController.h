@@ -14,8 +14,10 @@
 @interface PickCourseViewController : UITableViewController 
 
 @property (strong, nonatomic) StudentMO *student;
+
 @property (strong, nonatomic) NSString *studentFirstName;
 @property (strong, nonatomic) NSString *studentLastName;
+@property (strong, nonatomic) NSString *studentEmail;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext* managedObjectContext;

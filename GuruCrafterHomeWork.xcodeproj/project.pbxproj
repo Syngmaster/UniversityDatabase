@@ -22,6 +22,7 @@
 		DC4AD1491ECF3B7300A722EE /* AddCourseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD1481ECF3B7300A722EE /* AddCourseViewCell.m */; };
 		DC4AD14C1ED03F8600A722EE /* PickCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD14B1ED03F8600A722EE /* PickCourseViewController.m */; };
 		DC4AD1521ED1F0D200A722EE /* PickStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD1511ED1F0D200A722EE /* PickStudentViewController.m */; };
+		DC4AD1551ED22B1D00A722EE /* AddStudentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4AD1541ED22B1D00A722EE /* AddStudentViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		DC4AD14B1ED03F8600A722EE /* PickCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickCourseViewController.m; sourceTree = "<group>"; };
 		DC4AD1501ED1F0D200A722EE /* PickStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickStudentViewController.h; sourceTree = "<group>"; };
 		DC4AD1511ED1F0D200A722EE /* PickStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickStudentViewController.m; sourceTree = "<group>"; };
+		DC4AD1531ED22B1D00A722EE /* AddStudentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddStudentViewCell.h; sourceTree = "<group>"; };
+		DC4AD1541ED22B1D00A722EE /* AddStudentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddStudentViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,7 @@
 		DC4AD14D1ED1DE8000A722EE /* Student */ = {
 			isa = PBXGroup;
 			children = (
+				DC4AD1561ED22B2F00A722EE /* Cell */,
 				DC4AD1361ECF05D800A722EE /* StudentsViewController.h */,
 				DC4AD1371ECF05D800A722EE /* StudentsViewController.m */,
 				DC4AD13B1ECF1C7F00A722EE /* AddStudentViewController.h */,
@@ -142,6 +146,15 @@
 			children = (
 				DC4AD1471ECF3B7300A722EE /* AddCourseViewCell.h */,
 				DC4AD1481ECF3B7300A722EE /* AddCourseViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		DC4AD1561ED22B2F00A722EE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DC4AD1531ED22B1D00A722EE /* AddStudentViewCell.h */,
+				DC4AD1541ED22B1D00A722EE /* AddStudentViewCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -230,6 +243,7 @@
 				DC4AD14C1ED03F8600A722EE /* PickCourseViewController.m in Sources */,
 				DC4AD1461ECF35A700A722EE /* MainTableViewController.m in Sources */,
 				DC4AD1521ED1F0D200A722EE /* PickStudentViewController.m in Sources */,
+				DC4AD1551ED22B1D00A722EE /* AddStudentViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

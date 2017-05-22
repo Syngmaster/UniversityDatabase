@@ -11,15 +11,10 @@
 
 @class StudentMO;
 
-@interface AddStudentViewController : UIViewController
+@interface AddStudentViewController : UITableViewController
 
 @property (strong, nonatomic) StudentMO *student;
+
 @property (strong, nonatomic) NSManagedObjectContext* managedObjectContext;
-
-@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
-
-- (IBAction)dismissAction:(UIButton *)sender;
-- (IBAction)pickCourseAction:(UIButton *)sender;
 
 @end

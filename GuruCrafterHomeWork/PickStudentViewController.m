@@ -8,6 +8,7 @@
 
 #import "PickStudentViewController.h"
 #import "DataManager.h"
+
 #import "StudentMO+CoreDataClass.h"
 #import "CourseMO+CoreDataClass.h"
 
@@ -26,16 +27,9 @@
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
     self.navigationItem.rightBarButtonItem = doneButton;
     
-    if (!self.course) {
-        
-        CourseMO *course = [NSEntityDescription insertNewObjectForEntityForName:@"Course" inManagedObjectContext:self.managedObjectContext];
-        self.course = course;
-    
-        self.course.name = self.courseName;
-        self.course.subject = self.courseSubject;
-        self.courseDepartment = self.courseDepartment;
-        
-    }
+    self.course.name = self.courseName;
+    self.course.subject = self.courseSubject;
+    self.course.department = self.courseDepartment;
 
 }
 
@@ -44,7 +38,7 @@
 - (void)doneAction:(UIBarButtonItem *) sender {
     
     [self.managedObjectContext save:nil];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -97,7 +91,7 @@
 
 
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [[self.fetchedResultsController sections] count];

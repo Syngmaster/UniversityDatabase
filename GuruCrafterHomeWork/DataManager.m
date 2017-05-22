@@ -67,16 +67,7 @@ static NSString* carModelNames[] = {
     
 }
 
-- (NSArray *)getAllStudents {
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *desc = [NSEntityDescription entityForName:@"Student" inManagedObjectContext:self.persistentContainer.viewContext];
-    [request setEntity:desc];
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES];
-    [request setSortDescriptors:@[sort]];
-    NSArray *array = [self.persistentContainer.viewContext executeFetchRequest:request error:nil];
-    return array;
-}
+#pragma mark - Get students and courses methods
 
 - (NSArray *)getAllStudentsInCourse:(CourseMO *) course {
     
@@ -90,6 +81,21 @@ static NSString* carModelNames[] = {
     NSArray *array = [self.persistentContainer.viewContext executeFetchRequest:request error:nil];
     return array;
 }
+
+- (NSArray *)getAllCoursesOfStudent:(StudentMO *) student {
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *desc = [NSEntityDescription entityForName:@"Course" inManagedObjectContext:self.persistentContainer.viewContext];
+    [request setEntity:desc];
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    [request setSortDescriptors:@[sort]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"students.firstName CONTAINS %@", student.firstName];
+    [request setPredicate:predicate];
+    NSArray *array = [self.persistentContainer.viewContext executeFetchRequest:request error:nil];
+    return array;
+}
+
+
 
 #pragma mark - Core Data stack
 

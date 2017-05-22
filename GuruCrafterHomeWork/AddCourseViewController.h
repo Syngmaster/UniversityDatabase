@@ -10,11 +10,10 @@
 #import <CoreData/CoreData.h>
 
 @class CourseMO;
-@class StudentMO;
 
 @interface AddCourseViewController : UITableViewController
 
-@property (strong, nonatomic) CourseMO *editCourse;
+@property (strong, nonatomic) CourseMO *course;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext* managedObjectContext;

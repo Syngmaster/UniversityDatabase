@@ -7,11 +7,14 @@
 //
 
 #import "AddCourseViewController.h"
-#import "DataManager.h"
+#import "AddStudentViewController.h"
+#import "PickStudentViewController.h"
 #import "AddCourseViewCell.h"
+
+#import "DataManager.h"
+
 #import "CourseMO+CoreDataClass.h"
 #import "StudentMO+CoreDataClass.h"
-#import "PickStudentViewController.h"
 
 
 @interface AddCourseViewController ()
@@ -21,7 +24,7 @@
 @property (strong, nonatomic) UITextField *departmentTextField;
 
 @property (strong, nonatomic) NSArray *studentsArray;
-@property (strong, nonatomic) CourseMO *addCourse;
+@property (strong, nonatomic) NSMutableArray *lecturerArray;
 
 @end
 
@@ -33,27 +36,34 @@
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveAction:)];
     self.navigationItem.rightBarButtonItem = doneButton;
     
-    if (self.editCourse) {
-        
-        self.studentsArray = [[DataManager sharedManager] getAllStudentsInCourse:self.editCourse];
-        
+    if (self.course) {
+        self.studentsArray = [[DataManager sharedManager] getAllStudentsInCourse:self.course];
+    } 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self.tableView reloadData];
+    
+    if (self.course) {
+        self.studentsArray = [[DataManager sharedManager] getAllStudentsInCourse:self.course];
+    } else {
+        CourseMO *course = [NSEntityDescription insertNewObjectForEntityForName:@"Course" inManagedObjectContext:self.managedObjectContext];
+        self.course = course;
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Action
 
 - (void)saveAction:(UIBarButtonItem *) sender {
-    
-    self.addCourse.name = self.courseTextField.text;
-    self.addCourse.subject = self.subjectTextField.text;
-    self.addCourse.department = self.departmentTextField.text;
-    [self.managedObjectContext save:nil];
 
+    self.course.name = self.courseTextField.text;
+    self.course.subject = self.subjectTextField.text;
+    self.course.department = self.departmentTextField.text;
+
+    [self.managedObjectContext save:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -75,15 +85,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     if (section == 0) {
-        return 4;
+        return 3;
     } else {
-        if (self.editCourse) {
-           return [self.editCourse.students count] + 1;
+        if (self.course) {
+            return [self.course.students count] + 1;
         } else {
             return [self.studentsArray count] + 1;
         }
     }
-
 }
 
 
@@ -93,37 +102,32 @@
         
         AddCourseViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseCell" forIndexPath:indexPath];
         
-        if (self.editCourse) {
-            
-            switch (indexPath.row) {
-                case 0:cell.nameLabel.text = @"Course name";
-                    cell.textField.text = self.editCourse.name;
-                    break;
-                case 1:cell.nameLabel.text = @"Subject";
-                    cell.textField.text = self.editCourse.subject;
-                    break;
-                case 2:cell.nameLabel.text = @"Department";
-                    cell.textField.text = self.editCourse.department;
-                    break;
-                case 3:cell.nameLabel.text = @"Lecturer name";
-                    break;
-            }
-            
-        } else {
-            
-            switch (indexPath.row) {
-                case 0:cell.nameLabel.text = @"Course name";
-                    self.courseTextField = cell.textField;
-                    break;
-                case 1:cell.nameLabel.text = @"Subject";
-                    self.subjectTextField = cell.textField;
-                    break;
-                case 2:cell.nameLabel.text = @"Department";
-                    self.departmentTextField = cell.textField;
-                    break;
-                case 3:cell.nameLabel.text = @"Lecturer name";
-                    break;
-            }
+        switch (indexPath.row) {
+                
+            case 0:
+                cell.nameLabel.text = @"Course name";
+                self.courseTextField = cell.textField;
+                if (self.course) {
+                    cell.textField.text = self.course.name;
+                }
+                break;
+                    
+            case 1:
+                cell.nameLabel.text = @"Subject";
+                self.subjectTextField = cell.textField;
+                if (self.course) {
+                    cell.textField.text = self.course.subject;
+                }
+                break;
+                    
+            case 2:
+                cell.nameLabel.text = @"Department";
+                self.departmentTextField = cell.textField;
+                if (self.course) {
+                    cell.textField.text = self.course.department;
+                }
+                break;
+
         }
         
         return cell;
@@ -137,12 +141,14 @@
         
         if (indexPath.row == 0) {
             cell.textLabel.text = @"Add students";
+            cell.textLabel.textColor = [UIColor redColor];
         } else {
             
             StudentMO *student = [self.studentsArray objectAtIndex:indexPath.row - 1];
             cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", student.firstName, student.lastName];
             
         }
+        
         return cell;
     }
 }
@@ -161,10 +167,11 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (indexPath.section == 1) {
         if (editingStyle == UITableViewCellEditingStyleDelete) {
             StudentMO *student = [self.studentsArray objectAtIndex:indexPath.row-1];
-            [self.editCourse removeStudentsObject:student];
+            [self.course removeStudentsObject:student];
 
             
             NSMutableArray* tempArray = [NSMutableArray arrayWithArray:self.studentsArray];
@@ -183,44 +190,33 @@
 
 #pragma mark - UITableViewDelegate
 
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 1 && indexPath.row == 0) {
         
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         PickStudentViewController *vc = [[PickStudentViewController alloc] init];
-        
-        vc.course = self.editCourse;
+        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
+        vc.course = self.course;
         vc.courseName = self.courseTextField.text;
         vc.courseSubject = self.subjectTextField.text;
         vc.courseDepartment = self.departmentTextField.text;
         
-        [self.navigationController pushViewController:vc animated:YES];
+        [self presentViewController:navVC animated:YES completion:nil];
         
     }
     
-    
-    /*if (!self.editCourse && indexPath.row != 0) {
-        
-        [tableView deselectRowAtIndexPath:indexPath animated:NO];
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        StudentMO *student = [self.studentsArray objectAtIndex:indexPath.row-1];
-        
-        if (cell.accessoryType != UITableViewCellAccessoryCheckmark) {
-            [self.addCourse addStudentsObject:student];
-            
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            
-        } else {
-            
-            [self.addCourse removeStudentsObject:student];
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-    }*/
+    if (indexPath.section == 1 && indexPath.row != 0) {
 
-    
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        StudentMO *student = [self.studentsArray objectAtIndex:indexPath.row-1];
+
+        AddStudentViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AddStudentViewController"];
+        vc.student = student;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 @end

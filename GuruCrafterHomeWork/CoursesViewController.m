@@ -7,15 +7,16 @@
 //
 
 #import "CoursesViewController.h"
+#import "AddCourseViewController.h"
 #import "DataManager.h"
 #import "CourseMO+CoreDataClass.h"
-#import "AddCourseViewController.h"
 
 @interface CoursesViewController ()
 
 @end
 
 @implementation CoursesViewController
+
 @synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad {
@@ -26,11 +27,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.tableView reloadData];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -80,18 +76,19 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         CourseMO *course = [self.fetchedResultsController objectAtIndexPath:indexPath];
         AddCourseViewController *controller = [segue destinationViewController];
-        controller.editCourse = course;
+        controller.course = course;
         
     }
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     CourseMO *course = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@", course.name];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%i",(int)[course.students count]];
+    
 }
 
 

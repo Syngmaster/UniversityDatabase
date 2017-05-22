@@ -13,7 +13,7 @@
         <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Course" inverseName="students" inverseEntity="Course" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Student" positionX="90" positionY="-18" width="128" height="103"/>
         <element name="Course" positionX="-182" positionY="-18" width="119" height="103"/>
+        <element name="Student" positionX="88" positionY="-18" width="128" height="103"/>
     </elements>
 </model>

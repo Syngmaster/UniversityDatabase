@@ -16,28 +16,20 @@
 @end
 
 @implementation PickCourseViewController
+
 @synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.navigationItem.title = @"Pick a Course";
-
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
     self.navigationItem.rightBarButtonItem = doneButton;
-    
-    if (!self.student) {
-        StudentMO *student = [NSEntityDescription insertNewObjectForEntityForName:@"Student" inManagedObjectContext:self.managedObjectContext];
-        self.student = student;
 
-        if (![self.studentFirstName isEqualToString:@""] && ![self.studentLastName isEqualToString:@""]) {
-            
-            [self.student setValue:self.studentFirstName forKey:@"firstName"];
-            [self.student setValue:self.studentLastName forKey:@"lastName"];
-        }
-
-    }
+    self.student.firstName = self.studentFirstName;
+    self.student.lastName = self.studentLastName;
+    self.student.email = self.studentEmail;
 
 }
 
@@ -47,14 +39,6 @@
         _managedObjectContext = [[DataManager sharedManager] persistentContainer].viewContext;
     }
     return _managedObjectContext;
-}
-
-#pragma mark - Action
-
-- (void)doneAction:(UIBarButtonItem *) sender {
-
-    [self.managedObjectContext save:nil];
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
@@ -97,8 +81,15 @@
     return _fetchedResultsController;
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - Action
 
+- (void)doneAction:(UIBarButtonItem *) sender {
+
+    [self.managedObjectContext save:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -129,41 +120,39 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     CourseMO *course = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    for (CourseMO *obj in self.student.courses) {
-        
-        if ([obj.name isEqualToString:course.name]) {
+    
+        for (CourseMO *obj in self.student.courses) {
             
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            if ([obj.name isEqualToString:course.name]) {
+                
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            }
         }
-    }
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@", course.name];
+
 }
 
 #pragma mark - UITableViewDelegate
-
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     CourseMO *course = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
+    
     if (cell.accessoryType != UITableViewCellAccessoryCheckmark) {
         
         [course addStudentsObject:self.student];
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        
+            
     } else {
-        
+            
         [course removeStudentsObject:self.student];
         cell.accessoryType = UITableViewCellAccessoryNone;
-
+            
     }
 
 }
-
-
 
 @end
